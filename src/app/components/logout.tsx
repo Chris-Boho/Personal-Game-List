@@ -7,7 +7,7 @@ type Props = {};
 
 export default function Logout({}: Props) {
   return (
-    <button className="hover:underline" onClick={() => signOut}>
+    <button className="ho hover:underline" onClick={() => signOut}>
       Logout
     </button>
   );

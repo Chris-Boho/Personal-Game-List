@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { Inter } from "next/font/google";
 import Provider from "./components/provider";
 import Header from "./components/header";
+import { generateAccessToken } from "~/server/token";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,11 +16,12 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  generateAccessToken();
   return (
     <html lang="en" data-theme="light">
       <body className={`font-sans ${inter.variable}`}>

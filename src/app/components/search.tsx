@@ -7,7 +7,7 @@ export default function Search({}: Props) {
     <input
       type="text"
       placeholder="Search Here"
-      className="input input-bordered input-primary"
+      className="input input-bordered input-info"
     />
   );
 }

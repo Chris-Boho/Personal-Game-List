@@ -8,12 +8,12 @@ export default async function Header() {
   const user = await getCurrentUser();
   return (
     <header className="bg-sky-400 p-4" id="hd1">
-      <nav className="mx-auto flex max-w-4xl items-center justify-between">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           VG-List
         </Link>
 
-        <ul className="flex items-center space-x-4">
+        <ul className="flex items-center justify-items-center space-x-4">
           <li>
             <Search />
           </li>

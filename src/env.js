@@ -33,6 +33,7 @@ export const env = createEnv({
     TWITCH_CLIENT_ID: z.string(),
     TWITCH_CLIENT_SECRET: z.string(),
     IGDB_URL: z.string(),
+    DIRECT_URL: z.string(),
 
   },
 
@@ -58,7 +59,8 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     TWITCH_CLIENT_ID: process.env.TWITCH_CLIENT_ID,
     TWITCH_CLIENT_SECRET: process.env.TWITCH_CLIENT_SECRET,
-    IGDB_URL: process.env.IGDB_URL
+    IGDB_URL: process.env.IGDB_URL,
+    DIRECT_URL: process.env.DIRECT_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
