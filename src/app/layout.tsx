@@ -2,8 +2,8 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import Provider from "./components/provider";
-import Header from "./components/header";
 import { generateAccessToken } from "~/server/token";
+import Navbar from "./components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,7 +26,7 @@ export default async function RootLayout({
     <html lang="en" data-theme="light">
       <body className={`font-sans ${inter.variable}`}>
         <Provider>
-          <Header />
+          <Navbar />
           {children}
         </Provider>
       </body>

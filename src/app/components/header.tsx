@@ -1,49 +1,19 @@
-import Link from "next/link";
-import { getCurrentUser } from "~/server/session";
-import Logout from "./logout";
-import Search from "./search";
-import Theme_Toggle from "./theme_toggle";
+import React from "react";
 
-export default async function Header() {
-  const user = await getCurrentUser();
+type Props = {
+  text: string;
+  color: string;
+};
+
+export default function Header({ text, color }: Props) {
   return (
-    <header className="bg-sky-400 p-4" id="hd1">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between">
-        <Link href="/" className="text-2xl font-bold">
-          VG-List
-        </Link>
-
-        <ul className="flex items-center justify-items-center space-x-4">
-          <li>
-            <Search />
-          </li>
-          <li>
-            <Link href="/FAQ">FAQ</Link>
-          </li>
-          <li>
-            <Theme_Toggle />
-          </li>
-          {user?.name ? (
-            <Logout />
-          ) : (
-            <li>
-              <Link href="/api/auth/signin" className="hover:underline">
-                Login
-              </Link>
-            </li>
-          )}
-          <li>
-            {user ? (
-              <img
-                src={user.image!}
-                className="h-10 w-10 rounded-full bg-gray-300"
-              />
-            ) : (
-              <div className="h-10 w-10 rounded-full bg-gray-300"></div>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <h1 className="text-xl font-black">
+      <div className="relative inline-block">
+        <span className="relative z-10">{text}</span>
+        <span
+          className={`absolute bottom-0 left-0 h-1 w-1/2 rounded bg-red-500`}
+        ></span>
+      </div>
+    </h1>
   );
 }

@@ -2,7 +2,7 @@
 
 import { game } from "~/types/types";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import GameHero from "./gameHero";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,8 +14,16 @@ type Props = {
 
 export default async function Showcase({ games }: Props) {
   return (
-    <div>
-      <Swiper cssMode={true} navigation={true} pagination={true}>
+    <div className="flex max-w-4xl">
+      <Swiper
+        cssMode={true}
+        navigation={true}
+        pagination={true}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className=""
+      >
         {games.map((game: game) => (
           <SwiperSlide key={game.id}>
             <GameHero game={game} />
