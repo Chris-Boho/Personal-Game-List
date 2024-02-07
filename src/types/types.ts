@@ -10,4 +10,18 @@ export type game = {
   release_month?: number,
   release_human?: string,
   aggregated_rating?: number,
+  artworks?: string[],
+  storyline?: string,
+  themes?: string[],
+  similar_games?: string[],
+  rating?: number,
+  involved_companis?: string[],
+  platforms?: string[],
+  genres?: genre[],
+  categories?: string[],
+}
+
+type genre = {
+  id: number,
+  name: string,
 }

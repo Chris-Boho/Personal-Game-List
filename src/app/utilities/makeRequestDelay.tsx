@@ -4,7 +4,6 @@ type RequestParams = {
   endpoint: string;
   requestBody: string;
   getCover: boolean;
-  getReleaseDates: boolean;
 };
 
 export async function makeRequestWithDelay(requestParams: RequestParams) {

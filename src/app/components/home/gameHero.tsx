@@ -1,6 +1,7 @@
 import React from "react";
 import { game } from "~/types/types";
 import { FaStar } from "react-icons/fa6";
+import Link from "next/link";
 
 type Props = {
   game: game;
@@ -20,7 +21,11 @@ export default async function GameHero({ game }: Props) {
             {game.summary}
           </p>
           <div className="mt-4 flex items-center">
-            <button className="btn btn-info">Read More</button>
+            <button className="btn btn-info shadow-lg">
+              <Link key={game.id} href={`/game/${game.id}`}>
+                Read More
+              </Link>
+            </button>
             <kbd className="kbd kbd-lg ml-auto bg-info">
               {Math.floor(game.aggregated_rating!)} <FaStar className="ml-1" />
             </kbd>

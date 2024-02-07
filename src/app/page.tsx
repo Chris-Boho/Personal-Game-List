@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Showcase from "./components/showcase";
-import Header from "./components/header";
+import Showcase from "./components/home/showcase";
+import Header from "./components/topbar/header";
 import makeRequest from "./utilities/makeRequest";
 import { makeRequestWithDelay } from "./utilities/makeRequestDelay";
 import { game } from "~/types/types";
-import GameColumn from "./components/gameColumn";
+import GameColumn from "./components/home/gameColumn";
 
 export default async function HomePage() {
   const showcaseGames: game[] = await makeRequestWithDelay({
@@ -12,7 +12,6 @@ export default async function HomePage() {
     requestBody:
       "fields name, cover, summary, aggregated_rating; limit 10; where aggregated_rating > 90 & aggregated_rating_count > 10;",
     getCover: true,
-    getReleaseDates: false,
   });
 
   const curTime = Math.floor(new Date().getTime() / 1000);
@@ -22,15 +21,13 @@ export default async function HomePage() {
     endpoint: "/games",
     requestBody: `fields cover, name, first_release_date, category; limit 10; where first_release_date > ${curTime} & first_release_date < ${thirtyDays} & cover!=null & category = 0; sort first_release_date asc;`,
     getCover: true,
-    getReleaseDates: false,
   });
 
   const followedGames: game[] = await makeRequestWithDelay({
     endpoint: "/games",
     requestBody:
-      "fields name, cover, summary, follows, hypes, first_release_date; limit 10; where follows > 800; sort follows desc;",
+      "fields name, cover, follows, hypes, first_release_date; limit 10; where follows > 800; sort follows desc;",
     getCover: true,
-    getReleaseDates: false,
   });
 
   console.log("Followd Games: ", followedGames);

@@ -18,7 +18,6 @@ export default async function getCovers({ games }: Props) {
         endpoint: `/covers`,
         requestBody: `fields url, game; where id=${game.cover};`,
         getCover: false,
-        getReleaseDates: false,
       });
     }
     return Promise.resolve(null);
