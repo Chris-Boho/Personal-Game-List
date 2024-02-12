@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Showcase from "./components/home/showcase";
-import Header from "./components/topbar/header";
+import Header from "./components/other/header";
 import makeRequest from "./utilities/makeRequest";
 import { makeRequestWithDelay } from "./utilities/makeRequestDelay";
 import { game } from "~/types/types";

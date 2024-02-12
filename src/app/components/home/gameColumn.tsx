@@ -1,5 +1,5 @@
 import { game } from "~/types/types";
-import Header from "../topbar/header";
+import Header from "../other/header";
 
 type Props = {
   games: game[];

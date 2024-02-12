@@ -8,7 +8,10 @@ export default async function Navbar() {
   const user = await getCurrentUser();
   return (
     <>
-      <header className=" border-b-4 border-blue-700 bg-sky-400 p-4" id="hd1">
+      <header
+        className="border-b-4 border-blue-700 bg-gradient-to-b from-sky-400 to-blue-600 p-4"
+        id="hd1"
+      >
         <nav className="mx-auto flex max-w-6xl items-center justify-between">
           <Link href="/" className="text-2xl font-bold">
             VG-List
