@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useAccessToken } from "~/server/token";
 import getCovers from "./getCovers";
-import getRelease from "./getReleaseDates";
 
 type Props = {
   endpoint: string;
@@ -27,8 +26,8 @@ export default async function makeRequest({
   let result;
 
   const resp = await axios.post(URL, requestBody, { headers });
-  if (getCover == true) {
-    result = await getCovers({ games: resp.data });
+  if (getCover) {
+    result = getCovers({ games: resp.data });
   } else {
     result = resp.data;
   }

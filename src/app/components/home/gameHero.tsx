@@ -12,7 +12,7 @@ export default async function GameHero({ game }: Props) {
     <div className="hero rounded-lg bg-base-200 px-10 md:max-h-80 lg:max-h-96">
       <div className="hero-content h-auto max-w-full flex-col px-8 lg:flex-row">
         <img
-          src={game.cover_url}
+          src={game.cover?.url}
           className="h-auto max-w-full rounded-lg shadow-xl"
         />
         <div className="flex-grow">

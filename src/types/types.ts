@@ -2,25 +2,29 @@ export type game = {
   id: number,
   name: string,
   follows?: number,
-  cover?: number, 
-  cover_url?: string,
+  cover?: cover, 
   summary?: string,
   first_release_date?: string,
   release_dates?: string,
   release_month?: number,
   release_human?: string,
   aggregated_rating?: number,
+  rating?: number,
   artworks?: artwork[],
   screenshots?: screenshot[],
   storyline?: string,
   themes?: string[],
   similar_games?: string[],
-  rating?: number,
   involved_companis?: string[],
   platforms?: platform[],
   genres?: genre[],
   categories?: string[],
   game_modes?: game_mode[],
+}
+
+type cover = {
+  id: number,
+  url: string,
 }
 
 type genre = {

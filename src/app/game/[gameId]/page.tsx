@@ -1,6 +1,8 @@
 import makeRequest from "~/app/utilities/makeRequest";
 import { game } from "~/types/types";
 import GameTop from "~/app/components/game/gameTop";
+import GameMedia from "~/app/components/game/gameMedia";
+import Header from "~/app/components/other/header";
 
 type Props = {
   params: {
@@ -11,7 +13,7 @@ type Props = {
 export default async function GamePage({ params }: Props) {
   const thisGame: game[] = await makeRequest({
     endpoint: "/games",
-    requestBody: `fields id, name, cover, genres.name, game_modes.name, summary, storyline, platforms.name, artworks.url, screenshots.url; where id = ${params.gameId};`,
+    requestBody: `fields id, name, cover.url, genres.name, game_modes.name, summary, storyline, platforms.name, artworks.url, screenshots.url, rating, aggregated_rating; where id = ${params.gameId};`,
     getCover: true,
   });
 
@@ -19,6 +21,25 @@ export default async function GamePage({ params }: Props) {
     return (
       <div className="">
         <GameTop game={thisGame[0]} />
+        <div className="flex flex-col items-center justify-center">
+          <div className="mt-6">
+            <div className="divider"></div>
+            <div>
+              <Header text="Screenshots" />
+            </div>
+            {thisGame[0].screenshots && (
+              <GameMedia media={thisGame[0].screenshots} />
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <div className="mt-6">
+            <div>
+              <Header text="Artworks" />
+            </div>
+            {thisGame[0].artworks && <GameMedia media={thisGame[0].artworks} />}
+          </div>
+        </div>
       </div>
     );
   }

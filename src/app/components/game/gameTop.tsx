@@ -2,6 +2,7 @@ import { game } from "~/types/types";
 import Header from "../other/header";
 import SmallHeader from "../other/smallHeader";
 import SmallDetails from "./smallDetails";
+import GameRatings from "./gameRatings";
 
 type Props = {
   game: game;
@@ -14,19 +15,20 @@ export default function GameTop({ game }: Props) {
       <div className="mt-8 flex flex-col items-center justify-center ">
         <div className="">
           <div className="">
-            <Header text={`${game.name}`} color="red" />
+            <Header text={`${game.name}`} />
           </div>
           <div className="divider"></div>
-          <div className="max-w-2xl overflow-hidden md:flex ">
+          <div className="max-w-3xl overflow-hidden md:flex">
             <div className="md:flex-shrink-0">
               <img
-                className="h-auto w-full rounded-lg border object-cover shadow-lg"
-                src={game.cover_url}
+                className="h-auto w-full rounded-lg border object-cover shadow-lg sm:max-w-xs"
+                src={game.cover?.url}
                 alt="Game Cover"
               />
               <SmallDetails game={game} />
             </div>
             <div className="md:ml-16">
+              <GameRatings game={game} />
               <SmallHeader text="Description" />
               <p className="mt-2">{game.summary}</p>
               <div className="pt-4">

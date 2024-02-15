@@ -10,7 +10,7 @@ export default async function HomePage() {
   const showcaseGames: game[] = await makeRequestWithDelay({
     endpoint: "/games",
     requestBody:
-      "fields name, cover, summary, aggregated_rating; limit 10; where aggregated_rating > 90 & aggregated_rating_count > 10;",
+      "fields name, cover.url, summary, aggregated_rating; limit 10; where aggregated_rating > 90 & aggregated_rating_count > 10;",
     getCover: true,
   });
 
@@ -19,14 +19,14 @@ export default async function HomePage() {
 
   const releasingGames: game[] = await makeRequestWithDelay({
     endpoint: "/games",
-    requestBody: `fields cover, name, first_release_date, category; limit 10; where first_release_date > ${curTime} & first_release_date < ${thirtyDays} & cover!=null & category = 0; sort first_release_date asc;`,
+    requestBody: `fields cover.url, name, first_release_date, category; limit 10; where first_release_date > ${curTime} & first_release_date < ${thirtyDays} & cover!=null & category = 0; sort first_release_date asc;`,
     getCover: true,
   });
 
   const followedGames: game[] = await makeRequestWithDelay({
     endpoint: "/games",
     requestBody:
-      "fields name, cover, follows, hypes, first_release_date; limit 10; where follows > 800; sort follows desc;",
+      "fields name, cover.url, follows, hypes, first_release_date; limit 10; where follows > 800; sort follows desc;",
     getCover: true,
   });
 
@@ -37,18 +37,18 @@ export default async function HomePage() {
       <div>
         <div className="mt-10 flex flex-col items-center justify-center">
           <div className="space-y-4">
-            <Header text="Highly Rated Games" color="emerald" />
+            <Header text="Highly Rated Games" />
             <Showcase games={showcaseGames} />
           </div>
         </div>
       </div>
-      <div className="mt-10 flex flex-row items-center justify-center">
-        <div>
-          <Header text="Coming Soon" color="red" />
+      <div className="mt-10 flex flex-row items-center justify-center space-x-2">
+        <div className="">
+          <Header text="Coming Soon" />
           <GameColumn games={releasingGames} />
         </div>
-        <div>
-          <Header text="Most Followed" color="red" />
+        <div className="-mt-9">
+          <Header text="Most Followed" />
           <GameColumn games={followedGames} />
         </div>
       </div>
