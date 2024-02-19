@@ -16,10 +16,11 @@ export default async function Navbar() {
           <Link href="/" className="text-2xl font-bold">
             VG-List
           </Link>
-
           <ul className="flex items-center justify-items-center space-x-4">
-            <li>
-              <Search />
+            <li className="flex flex-row">
+              <div className="hidden sm:block">
+                <Search />
+              </div>
             </li>
             <li>
               <Link href="/FAQ">FAQ</Link>

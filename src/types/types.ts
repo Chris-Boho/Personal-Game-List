@@ -15,7 +15,7 @@ export type game = {
   storyline?: string,
   themes?: string[],
   similar_games?: string[],
-  involved_companis?: string[],
+  involved_companies?: involved_companies[],
   platforms?: platform[],
   genres?: genre[],
   categories?: string[],
@@ -50,4 +50,12 @@ type platform = {
 type game_mode = {
   id: number,
   name: string,
+}
+
+type involved_companies = {
+  id: number,
+  company: {
+    id: number,
+    name: string,
+  }
 }

@@ -42,12 +42,12 @@ export default async function HomePage() {
           </div>
         </div>
       </div>
-      <div className="mt-10 flex flex-row items-center justify-center space-x-2">
+      <div className="mt-10 flex flex-col items-center justify-center sm:flex-row sm:space-x-2">
         <div className="">
           <Header text="Coming Soon" />
           <GameColumn games={releasingGames} />
         </div>
-        <div className="-mt-9">
+        <div className="-ml-16 sm:ml-0">
           <Header text="Most Followed" />
           <GameColumn games={followedGames} />
         </div>

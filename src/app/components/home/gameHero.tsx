@@ -7,17 +7,28 @@ type Props = {
   game: game;
 };
 
-export default async function GameHero({ game }: Props) {
+export default function GameHero({ game }: Props) {
   return (
-    <div className="hero rounded-lg bg-base-200 px-10 md:max-h-80 lg:max-h-96">
-      <div className="hero-content h-auto max-w-full flex-col px-8 lg:flex-row">
+    <div
+      className="hero rounded-lg bg-slate-300 px-10 pb-4 sm:max-h-80 sm:pb-0"
+      id="gh"
+    >
+      <div className="hero-content h-auto max-w-full flex-col px-8 sm:flex-row">
         <img
-          src={game.cover?.url}
+          src={game.cover?.url.replace("t_original", "t_cover_big")}
           className="h-auto max-w-full rounded-lg shadow-xl"
+          style={{
+            maxWidth: "100%",
+            maxHeight: "280px",
+            width: "auto",
+            height: "auto",
+          }}
         />
         <div className="flex-grow">
-          <h1 className="pb-4 text-xl font-bold">{game.name}</h1>
-          <p className="line-clamp-5 overflow-hidden overflow-ellipsis">
+          <p className="line-clamp-1 text-xl font-bold sm:line-clamp-none sm:pb-4">
+            {game.name}
+          </p>
+          <p className="line-clamp-3 overflow-hidden overflow-ellipsis sm:line-clamp-5">
             {game.summary}
           </p>
           <div className="mt-4 flex items-center">

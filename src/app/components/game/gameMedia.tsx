@@ -25,7 +25,7 @@ export default function GameMedia({ media }: Props) {
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center rounded bg-slate-300 p-8">
-      <div className="max-w-3xl ">
+      <div className="max-w-80 sm:max-w-3xl">
         <Swiper
           style={
             {
@@ -35,7 +35,6 @@ export default function GameMedia({ media }: Props) {
           }
           spaceBetween={10}
           centeredSlides={true}
-          // navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Thumbs]}
           className="mySwiper2"

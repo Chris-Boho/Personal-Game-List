@@ -34,7 +34,9 @@ export default function ScreenshotModal({ src }: Props) {
             </button>
           </form>
           <h3 className="text-lg font-bold">Media!</h3>
-          <img src={src} className="rounded-lg" />
+          <div className="flex items-center justify-center">
+            <img src={src} className="rounded-lg" />
+          </div>
         </div>
         <form method="dialog" className="modal-backdrop">
           <button></button>

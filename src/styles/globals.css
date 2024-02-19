@@ -5,3 +5,11 @@
 [data-theme="dark"] #hd1 {
   color: white;
 }
+
+[data-theme="dark"] #gh {
+  color: black;
+}
+
+[data-theme="dark"] #rating {
+  color: black;
+}

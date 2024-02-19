@@ -12,20 +12,21 @@ type Props = {
   games: game[];
 };
 
-export default async function Showcase({ games }: Props) {
+export default function Showcase({ games }: Props) {
   return (
-    <div className="flex max-w-4xl">
+    <div className="flex max-w-80 sm:max-w-4xl">
       <Swiper
         cssMode={true}
+        spaceBetween={8}
         navigation={true}
         pagination={true}
-        mousewheel={true}
-        keyboard={true}
+        mousewheel={false}
+        keyboard={false}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className=""
       >
-        {games.map((game: game) => (
-          <SwiperSlide key={game.id}>
+        {games.map((game) => (
+          <SwiperSlide key={game.id} className="">
             <GameHero game={game} />
           </SwiperSlide>
         ))}

@@ -13,7 +13,7 @@ type Props = {
 export default async function GamePage({ params }: Props) {
   const thisGame: game[] = await makeRequest({
     endpoint: "/games",
-    requestBody: `fields id, name, cover.url, genres.name, game_modes.name, summary, storyline, platforms.name, artworks.url, screenshots.url, rating, aggregated_rating; where id = ${params.gameId};`,
+    requestBody: `fields id, name, cover.url, genres.name, game_modes.name, summary, storyline, platforms.name, artworks.url, screenshots.url, rating, aggregated_rating, first_release_date, involved_companies.company.name; where id = ${params.gameId};`,
     getCover: true,
   });
 

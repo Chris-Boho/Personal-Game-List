@@ -14,27 +14,37 @@ export default function GameTop({ game }: Props) {
     return (
       <div className="mt-8 flex flex-col items-center justify-center ">
         <div className="">
-          <div className="">
+          <div className="ml-2 sm:ml-0">
             <Header text={`${game.name}`} />
           </div>
           <div className="divider"></div>
           <div className="max-w-3xl overflow-hidden md:flex">
             <div className="md:flex-shrink-0">
-              <img
-                className="h-auto w-full rounded-lg border object-cover shadow-lg sm:max-w-xs"
-                src={game.cover?.url}
-                alt="Game Cover"
-              />
-              <SmallDetails game={game} />
-            </div>
-            <div className="md:ml-16">
-              <GameRatings game={game} />
-              <SmallHeader text="Description" />
-              <p className="mt-2">{game.summary}</p>
-              <div className="pt-4">
-                <SmallHeader text="Storyline" />
+              <div className="flex items-center justify-center">
+                <img
+                  className="mx-2 max-w-96 rounded-lg border object-cover shadow-lg sm:mx-0 sm:h-auto sm:w-full sm:max-w-xs"
+                  src={game.cover?.url}
+                  alt="Game Cover"
+                />
               </div>
-              <p className="mt-2">{game.storyline}</p>
+              <div className="">
+                <SmallDetails game={game} />
+              </div>
+            </div>
+            <div className="sm:ml-16">
+              <GameRatings game={game} />
+              <div className="mx-4 sm:mx-0">
+                <div className="">
+                  <SmallHeader text="Description" />
+                  <p className="mt-2">{game.summary}</p>
+                </div>
+                {game.storyline && (
+                  <div className="pt-4">
+                    <SmallHeader text="Storyline" />
+                    <p className="mt-2">{game.storyline}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

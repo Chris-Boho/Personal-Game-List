@@ -10,7 +10,7 @@ export default function GameColumn({ games }: Props) {
     <div className="">
       <ul>
         {games.map((game: game) => (
-          <li className="py-4 pr-6" key={game.id}>
+          <li className="py-4" key={game.id}>
             <div className="flex">
               <img src={game.cover?.url} width="50px" height="50px" />
               <div>
