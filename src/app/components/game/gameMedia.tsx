@@ -47,6 +47,7 @@ export default function GameMedia({ media }: Props) {
               >
                 <ScreenshotModal
                   src={item.url.replace("t_thumb", "t_original")}
+                  id={item.id}
                 />
               </SwiperSlide>
             ))}
