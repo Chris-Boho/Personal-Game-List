@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getCurrentUser } from "~/server/session";
 import Logout from "./logout";
-import Search from "./search";
+import SearchBar from "./searchBar";
 import Theme_Toggle from "./theme_toggle";
 
 export default async function Navbar() {
@@ -18,8 +18,8 @@ export default async function Navbar() {
           </Link>
           <ul className="flex items-center justify-items-center space-x-4">
             <li className="flex flex-row">
-              <div className="hidden sm:block">
-                <Search />
+              <div className="">
+                <SearchBar />
               </div>
             </li>
             <li>

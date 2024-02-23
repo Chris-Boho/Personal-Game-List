@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useAccessToken } from "~/server/token";
 import getCovers from "./getCovers";
+import { env } from "process";
 
 type Props = {
   endpoint: string;
@@ -18,7 +19,7 @@ export default async function makeRequest({
   const authorization = await useAccessToken();
 
   const headers = {
-    "Client-ID": "cetsr40yovidpb1de2zd1y3a822qs3",
+    "Client-ID": env.TWITCH_CLIENT_ID,
     Authorization: `Bearer ${authorization?.token}`,
     Accept: "application/json",
   };

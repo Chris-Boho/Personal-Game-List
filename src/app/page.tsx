@@ -1,13 +1,11 @@
-import Link from "next/link";
 import Showcase from "./components/home/showcase";
 import Header from "./components/other/header";
 import makeRequest from "./utilities/makeRequest";
-import { makeRequestWithDelay } from "./utilities/makeRequestDelay";
 import { game } from "~/types/types";
 import GameColumn from "./components/home/gameColumn";
 
 export default async function HomePage() {
-  const showcaseGames: game[] = await makeRequestWithDelay({
+  const showcaseGames: game[] = await makeRequest({
     endpoint: "/games",
     requestBody:
       "fields name, cover.url, summary, aggregated_rating; limit 10; where aggregated_rating > 90 & aggregated_rating_count > 10;",
@@ -17,13 +15,13 @@ export default async function HomePage() {
   const curTime = Math.floor(new Date().getTime() / 1000);
   const thirtyDays = curTime + 2592000;
 
-  const releasingGames: game[] = await makeRequestWithDelay({
+  const releasingGames: game[] = await makeRequest({
     endpoint: "/games",
     requestBody: `fields cover.url, name, first_release_date, category; limit 10; where first_release_date > ${curTime} & first_release_date < ${thirtyDays} & cover!=null & category = 0; sort first_release_date asc;`,
     getCover: true,
   });
 
-  const followedGames: game[] = await makeRequestWithDelay({
+  const followedGames: game[] = await makeRequest({
     endpoint: "/games",
     requestBody:
       "fields name, cover.url, follows, hypes, first_release_date; limit 10; where follows > 800; sort follows desc;",
